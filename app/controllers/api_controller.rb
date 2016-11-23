@@ -7,11 +7,6 @@ class ApiController < ApplicationController
     Money.default_bank = Money::Bank::GoogleCurrency.new
     dollar = 1.to_money(:USD)
     @geneh = dollar.exchange_to(:EGP).to_f
-    if @geneh != Rate.last.rate
-      @rate = Rate.last
-      @rate.update(rate: @geneh)
-      @rate.save!
-    end
 
     render json: @geneh
   end
