@@ -26,7 +26,8 @@ class ApiController < ApplicationController
       else
         last = Rate.last.rate
         if last > @geneh
-          @text = "USD-EGP currency exchange rate is now %.2f, it has decreased by %.2f" % @geneh, (last - @geneh)
+          diff = (last - @geneh).to_f
+          @text = "USD-EGP currency exchange rate is now %.2f, it has decreased by %.2f" %[@geneh, diff]
           @rate = Rate.last
           @rate.update(rate: @geneh)
           @rate.save!
@@ -46,7 +47,8 @@ class ApiController < ApplicationController
           response = http.request(request)
           puts response.body
         elsif last < @geneh
-          @text = "USD-EGP currency exchange rate is now %.2f, it has increased by %.2f" % @geneh, (last - @geneh)
+          diff = (@geneh - last).to_f
+          @text = "USD-EGP currency exchange rate is now %.2f, it has increased by %.2f" %[@geneh, diff]
           @rate = Rate.last
           @rate.update(rate: @geneh)
           @rate.save!
