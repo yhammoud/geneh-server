@@ -16,10 +16,9 @@ ActiveRecord::Schema.define(version: 20161123041342) do
   enable_extension "plpgsql"
 
   create_table "rates", force: :cascade do |t|
-    t.datetime "created_at",                                                      null: false
-    t.datetime "updated_at",                                                      null: false
     t.float    "rate"
-    t.float    "#<ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
