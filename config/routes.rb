@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'api#get_exchange_rate'
   get '/api/exchange_rate' => 'api#get_exchange_rate'
 
+
   get '/notifications/new' => 'notifications#new'
   post '/notifications/push' => 'notifications#push'
 end
