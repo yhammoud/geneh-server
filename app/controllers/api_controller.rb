@@ -64,6 +64,7 @@ class ApiController < ApplicationController
           puts response.body
         end
       end
+      sleep 30
     end
   end
 end
