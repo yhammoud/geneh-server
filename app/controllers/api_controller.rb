@@ -2,6 +2,8 @@ class ApiController < ApplicationController
   require 'money'
   require 'monetize'
   require 'money/bank/google_currency'
+  require 'net/http'
+  require 'certified'
 
   def get_exchange_rate
     Money.default_bank = Money::Bank::GoogleCurrency.new
